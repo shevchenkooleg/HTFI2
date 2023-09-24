@@ -1,27 +1,29 @@
 import React from 'react'
 import Affair from './affair/Affair'
-import {AffairType, FilterType} from '../HW2'
+import {AffairType, FiltersType, FilterType} from '../HW2'
 import s from './Affairs.module.css'
 
 type AffairsPropsType = {
-    data: any // need to fix any
-    setFilter: any
-    deleteAffairCallback: any
+    data: AffairType[]
+    setFilter: (newFilter: FiltersType)=>void
+    deleteAffairCallback: (_id: number)=>void
     filter: FilterType
 }
 
 function Affairs(props: AffairsPropsType) {
+
+    const {setFilter, filter, deleteAffairCallback, data} = props
     const setAll = () => {
-        // need to fix
+        setFilter(FiltersType.ALL)
     }
     const setHigh = () => {
-        // need to fix
+        setFilter(FiltersType.HIGH)
     }
     const setMiddle = () => {
-        // need to fix
+        setFilter(FiltersType.MIDDLE)
     }
     const setLow = () => {
-        // need to fix
+        setFilter(FiltersType.LOW)
     }
 
     const cnAll = s.button + ' ' + s.all + (props.filter === 'all' ? ' ' + s.active : '')
@@ -31,9 +33,9 @@ function Affairs(props: AffairsPropsType) {
 
     const mappedAffairs = props.data.map((a: AffairType) => (
         <Affair
-            key={a._id} // кеи ОБЯЗАТЕЛЬНЫ в 99% - так что лучше их писать всегда при создании компонент в мапе
+            key={a._id}
             affair={a}
-            deleteAffairCallback={props.deleteAffairCallback}
+            deleteAffairCallback={deleteAffairCallback}
         />
     ))
 
