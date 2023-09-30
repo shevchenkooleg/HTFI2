@@ -72,6 +72,7 @@ function HW2() {
                     filter={filter}
                 />
             </div>
+            <hr/>
         </div>
     )
 }

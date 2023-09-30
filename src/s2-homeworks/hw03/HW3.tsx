@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, {useEffect, useState} from 'react'
 import { v1 } from 'uuid'
 import s2 from '../../s1-main/App.module.css'
 import GreetingContainer from './GreetingContainer'
@@ -19,20 +19,32 @@ import GreetingContainer from './GreetingContainer'
 
 // types
 export type UserType = {
-    _id: any // need to fix any
-    name: any // need to fix any
+    _id: number
+    name: string
 }
 
-export const pureAddUserCallback = (name: any, setUsers: any, users: any) => { // need to fix any
-    const user = { // need to fix
+export const pureAddUserCallback = (name: string, setUsers: (newUsersArr: UserType[]) => void, users: UserType[]) => {
+    const user = {} as UserType
+    if (users.length > 0){
+            user._id = users[users.length - 1]._id + 1;
+            user.name = name
+    } else {
+        user._id = 1;
+        user.name = name
     }
+
     setUsers([...users, user])
 }
 
 const HW3 = () => {
-    const [users, setUsers] = useState<any>([]) // need to fix any
+    const [users, setUsers] = useState<UserType[]>([])
 
-    const addUserCallback = (name: any) => { // need to fix any
+
+    useEffect(()=>{
+        console.log(users)
+    })
+
+    const addUserCallback = (name: string) => {
         pureAddUserCallback(name, setUsers, users)
     }
 
@@ -40,7 +52,7 @@ const HW3 = () => {
         <div id={'hw3'}>
             <div className={s2.hwTitle}>Homework #3</div>
             {/*для автоматической проверки дз (не менять)*/}
-
+            <hr/>
             <div className={s2.hw}>
                 <GreetingContainer
                     users={users}
