@@ -1,24 +1,61 @@
 .sidebar {
+    display: flex;
+    position: absolute;
+    height: 100%;
+    flex-direction: column;
+    align-items: end;
+    background-color: #FFFFFF;
+    z-index: 100;
+    left: -317px;
+    transition: left 700ms;
+    box-shadow: 0px 1px 2px 0px #1D21261A;
+    box-shadow: 0px 10px 40px 0px #1D212621;
 }
 
 .sidebar.open {
+    left: 0px;
+    transition: left 700ms;
 }
 
 .background {
+    background-color: rgba(0, 0, 0, 0.3);
+    width: 100%;
+    height: 100%;
+    position: absolute;
 }
 
 .nav {
+    width: 317px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    padding-left: 70px;
 }
 
 .nav a {
+    font-size: 22px;
+    margin-bottom: 50px;
+    text-decoration: none;
+    color: black;
+}
+.nav a:visited {
+    color: black;
 }
 
 .nav a:hover {
+    color: #58ACFF;
 }
 
 .nav a.active {
+    color: #0059B2;
+    text-decoration: underline;
 }
 .close {
+    width: 24px;
+    height: 24px;
+    border: none;
+    margin: 24px 24px 24px 0;
+    background-color: white;
 }
 
 .close img {
