@@ -4,11 +4,16 @@ import SuperInputText from './common/c1-SuperInputText/SuperInputText'
 import SuperCheckbox from './common/c3-SuperCheckbox/SuperCheckbox'
 import SuperButton from './common/c2-SuperButton/SuperButton'
 
+export type Modifier = 'red' | 'secondary'
+
 const Stand = () => {
     const [stateForAllInputs, setValue] = useState<string>('')
     const [error, setError] = useState<string>('')
 
     const [stateForAllCheckboxes, setChecked] = useState<boolean>(false)
+    const onCheckBoxClick = (e: React.MouseEvent<HTMLInputElement>) => {
+        setChecked(e.currentTarget.checked)
+    }
 
     return (
         <div id={'hw4-stand'} className={s.stand}>
@@ -43,14 +48,19 @@ const Stand = () => {
             <div className={s.buttons}>
                 {/*обычная кнопка:*/}
                 <div>
-                    <SuperButton id={'hw4-super-button-default'}>
-                        default
+                    <SuperButton
+                        id={'hw4-super-button-default'}
+                    >
+                        Дефолтная
                     </SuperButton>
                 </div>
                 {/*красная кнопка:*/}
                 <div>
-                    <SuperButton id={'hw4-super-button-red'} xType={'red'}>
-                        red
+                    <SuperButton
+                        id={'hw4-super-button-red'}
+                        xType={'red'}
+                    >
+                        Опасность
                     </SuperButton>
                 </div>
                 {/*задизэйбленная кнопка:*/}
@@ -60,7 +70,7 @@ const Stand = () => {
                         xType={'red'}
                         disabled
                     >
-                        disabled
+                        Не активная
                     </SuperButton>
                 </div>
                 {/*задизэйбленная кнопка:*/}
@@ -69,7 +79,7 @@ const Stand = () => {
                         id={'hw4-super-button-secondary'}
                         xType={'secondary'}
                     >
-                        secondary
+                        Дополнительная
                     </SuperButton>
                 </div>
             </div>
@@ -80,9 +90,9 @@ const Stand = () => {
                     <SuperCheckbox
                         id={'hw4-super-checkbox-with-text'}
                         checked={stateForAllCheckboxes}
-                        onChangeChecked={setChecked}
+                        onClick={onCheckBoxClick}
                     >
-                        some text
+                        Hometask
                     </SuperCheckbox>
                 </div>
                 {/*совместим со старым кодом:*/}
@@ -90,7 +100,7 @@ const Stand = () => {
                     <SuperCheckbox
                         id={'hw4-super-checkbox-like-old'}
                         checked={stateForAllCheckboxes}
-                        onChange={(e) => setChecked(e.currentTarget.checked)}
+                        onClick={onCheckBoxClick}
                     />
                 </div>
             </div>

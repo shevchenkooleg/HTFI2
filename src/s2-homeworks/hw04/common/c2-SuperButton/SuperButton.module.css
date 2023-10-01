@@ -1,36 +1,84 @@
 .button {
+    background-color: #0066CC;
+    width: 130px;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    color: white;
+}
+.button:hover {
+    width: 167px;
+    background-color: #0080FF;
+}
+.button:active {
+    width: 150px;
+    background-color: #0059B2;
+}
+
+
+
+.red {
+    background-color: #CC1439;
+}
+.red:hover {
+    background-color: #FF1A47;
+}
+.red:active {
+    width: 150px;
+    background-color: #B21232;
 }
 
 .disabled {
+    background-color: rgba(0, 77, 153, 0.5);
+    font-size: 14px;
+    color: #002E5C
+}
+.disabled:hover {
+    width: 130px;
+    background-color: rgba(0, 77, 153, 0.5);
 }
 
 .secondary {
+    width: 176px;
+    color: #0066CC;
+    background-color: white;
+    border: 1px solid #0066CC;
 }
 
-.default {
+.secondary:hover{
+    background-color: #E5F0FA;
 }
-
-.red {
-}
-
-.default:hover {
-}
-
-.red:hover {
-}
-
-.secondary:hover {
+.secondary:active{
+    width: 150px;
+    background-color: #C9E5FF;
 }
 
 
-.default:active {
-}
+/*.default {*/
+/*}*/
 
-.secondary:active {
-}
 
-.red:active {
-}
 
-.button:disabled {
-}
+/*.default:hover {*/
+/*}*/
+
+/*.red:hover {*/
+/*}*/
+
+/*.secondary:hover {*/
+/*}*/
+
+
+/*.default:active {*/
+/*}*/
+
+/*.secondary:active {*/
+/*}*/
+
+/*.red:active {*/
+/*}*/
+
+/*.button:disabled {*/
+/*    */
+/*}*/
