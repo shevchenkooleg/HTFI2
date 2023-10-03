@@ -13,7 +13,7 @@ import s from './HW7.module.css'
 
 export type OptionsType = {
     id: number
-    value: 'Pre-Junior' | 'Junior' | 'Junior +'
+    value: string
 }
 
 const arr: OptionsType[] = [
