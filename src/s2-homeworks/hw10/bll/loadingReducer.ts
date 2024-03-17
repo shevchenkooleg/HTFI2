@@ -12,7 +12,6 @@ export type LoadingReducerActionType = LoadingActionType
 export const loadingReducer = (state = initState, action: LoadingReducerActionType): LoadingStateType => { // fix any
     switch (action.type) {
         case 'CHANGE_LOADING': {
-            console.log('set_new_isLoading_status ', action.isLoading)
             return {...state, isLoading: action.isLoading}
         }
 
