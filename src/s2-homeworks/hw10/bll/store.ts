@@ -2,6 +2,11 @@ import { loadingReducer } from './loadingReducer'
 import { combineReducers, legacy_createStore } from 'redux'
 import { themeReducer } from '../../hw12/bll/themeReducer'
 
+export interface StateSchema {
+    loading: {isLoading: boolean}
+    theme: {themeId: number}
+}
+
 const reducers = combineReducers({
     loading: loadingReducer, // hw10
     theme: themeReducer, // hw12
