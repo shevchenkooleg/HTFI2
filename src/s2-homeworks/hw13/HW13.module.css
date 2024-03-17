@@ -2,18 +2,26 @@
 }
 
 .responseContainer {
+    margin-top: 80px;
+    display: flex;
 }
 
 .imageContainer {
 }
 
 .image {
+    margin-right: 50px;
 }
 
 .textContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .code {
+    font-size: 37px;
+    margin-bottom: 10px;
 }
 
 .text {
