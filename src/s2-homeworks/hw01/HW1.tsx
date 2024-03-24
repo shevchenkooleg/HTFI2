@@ -51,9 +51,6 @@ export const friendMessage0: MessageType = {
     },
 }
 
-console.log(message0)
-console.log(friendMessage0)
-
 const HW1 = () => {
     return (
         <div id={'hw1'}>
