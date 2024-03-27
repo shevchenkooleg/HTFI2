@@ -50,7 +50,6 @@ const HW14 = () => {
         const params = Object.fromEntries(searchParams)
         sendQuery(params.find || '')
         setFind(params.find || '')
-        console.log('params ', params)
     }, [])
 
     const mappedTechs = techs.map(t => (
@@ -63,7 +62,7 @@ const HW14 = () => {
         <div id={'hw14'}>
             <div className={s2.hwTitle}>Homework #14</div>
             <hr/>
-            <div className={s2.hw}>
+            <div className={`${s2.hw} ${s.container}`}>
                 <SuperDebouncedInput
                     id={'hw14-super-debounced-input'}
                     value={find}

@@ -1,5 +1,9 @@
 .tech {
-    width: 50vw;
+    width: 50%;
+}
+
+.container {
+    height: 300px;
 }
 
 .developer {
@@ -7,21 +11,46 @@
 }
 
 .techHeader {
-    width: 50vw;
+    width: 50%;
+    display: flex;
+    align-items: center;
 }
 
 .developerHeader {
-
+    width: 50%;
+    display: flex;
+    align-items: center;
 }
 
 .row {
     display: flex;
+    padding: 17px;
+    margin-top: 10px;
+    width: 500px;
+    height: 30px;
+    justify-content: start;
+    align-items: center;
+    border-bottom: 1px solid rgba(229, 229, 229, 1);
 }
 
 .rowHeader {
     display: flex;
+    font-weight: bold;
+    margin-top: 20px;
+    padding: 17px;
+    width: 500px;
+    height: 30px;
+    justify-content: start;
+    align-items: center;
+    background-color: rgba(229, 229, 229, 1);
 }
 
 .loading {
+    position: absolute;
+    top: 100px;
+    left: 150px
+}
+
+.rowIcon {
 
 }
