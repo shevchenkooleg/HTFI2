@@ -48,7 +48,7 @@ const HW15 = () => {
     const [totalCount, setTotalCount] = useState(100)
     const [searchParams, setSearchParams] = useSearchParams()
     const [techs, setTechs] = useState<TechType[]>([])
-    const [isInit, setIsInit] = useState(false)
+    // const [isInit, setIsInit] = useState(false)
 
     const sendQuery = (params: any) => {
         setLoading(true)
@@ -61,12 +61,23 @@ const HW15 = () => {
     }
 
     const onChangePagination = (newPage: number, newCount: number) => {
-        setSearchParams({page: String(newPage), count: String(newCount), sort: sort})
+        //setSearchParams({page: String(newPage), count: String(newCount), sort: sort})
+
+
+        setPage(newPage)
+        setCount(newCount)
+        const pageQuery: { page?: string } = newPage !== 1 ? {page: newPage + ''} : {} // если стандарт - то не записывать в урл
+        const countQuery: { count?: string } = newCount !== 4 ? {count: newCount + ''} : {} // если стандарт - то не записывать в урл
+        const {count, page, ...lastQueries} = Object.fromEntries(searchParams)
+
+        const allQuery = {...lastQueries, ...pageQuery, ...countQuery}
+        sendQuery(allQuery)
+        setSearchParams(allQuery)
     }
 
     const onChangeSort = (newSort: string) => {
 
-        setSearchParams({page: String(1), count: String(count), sort: newSort})
+        // setSearchParams({page: String(1), count: String(count), sort: newSort})
         // делает студент
 
         // setSort(
@@ -76,20 +87,34 @@ const HW15 = () => {
         // setSearchParams(
 
         //
+
+        setSort(newSort)
+        setPage(1) // при сортировке сбрасывать на 1 страницу
+        const sortQuery: { sort?: string } = newSort !== '' ? {sort: newSort} : {} // если стандарт - то не записывать в урл
+        const {sort, page, ...lastQueries} = Object.fromEntries(searchParams)
+
+        const allQuery = {...lastQueries, ...sortQuery}
+        sendQuery(allQuery)
+        setSearchParams(allQuery)
     }
 
     useEffect(()=>{
-        setSearchParams({page: String(1), count: String(4), sort: ''})
-        setIsInit(true)
+        // setSearchParams({page: String(1), count: String(4), sort: ''})
+        // setIsInit(true)
+
+        const params = Object.fromEntries(searchParams)
+        sendQuery({page: params.page, count: params.count})
+        setPage(+params.page || 1)
+        setCount(+params.count || 4)
     },[])
 
-    useEffect(() => {
-        const params = Object.fromEntries(searchParams)
-        sendQuery({page: params.page, count: params.count, sort: params.sort})
-        setPage(isInit ? +params.page : 1)
-        setCount(isInit ? +params.count : 4)
-        setSort(isInit ? params.sort : '')
-    }, [searchParams])
+    // useEffect(() => {
+    //     const params = Object.fromEntries(searchParams)
+    //     sendQuery({page: params.page, count: params.count, sort: params.sort})
+    //     setPage(isInit ? +params.page : 1)
+    //     setCount(isInit ? +params.count : 4)
+    //     setSort(isInit ? params.sort : '')
+    // }, [searchParams])
 
     const mappedTechs = techs.map(t => (
         <div key={t.id} className={s.row}>
