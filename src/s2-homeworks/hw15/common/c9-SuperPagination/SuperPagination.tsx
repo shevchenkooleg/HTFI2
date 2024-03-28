@@ -2,6 +2,7 @@ import React from 'react'
 import SuperSelect from '../../../hw07/common/c5-SuperSelect/SuperSelect'
 import {Pagination} from '@mui/material'
 import s from './SuperPagination.module.css'
+import MyPagination from "./MyPagination";
 
 export type SuperPaginationPropsType = {
     id?: string
@@ -31,17 +32,18 @@ const SuperPagination: React.FC<SuperPaginationPropsType> = (
 
     return (
         <div className={s.pagination}>
-            <Pagination
-                id={id + '-pagination'}
-                sx={{
-                    // стили для Pagination // пишет студент
-                }}
-                page={page}
-                count={lastPage}
-                onChange={onChangeCallback}
-                hideNextButton
-                hidePrevButton
-            />
+            <MyPagination id={id + '-pagination'} page={page} count={lastPage} onChange={onChangeCallback}/>
+            {/*<Pagination*/}
+            {/*    id={id + '-pagination'}*/}
+            {/*    sx={{*/}
+            {/*        // стили для Pagination // пишет студент*/}
+            {/*    }}*/}
+            {/*    page={page}*/}
+            {/*    count={lastPage}*/}
+            {/*    onChange={onChangeCallback}*/}
+            {/*    hideNextButton*/}
+            {/*    hidePrevButton*/}
+            {/*/>*/}
 
             <span className={s.text1}>
                 показать
