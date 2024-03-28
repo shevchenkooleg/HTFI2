@@ -22,7 +22,7 @@ const MyPagination = (props: MyPaginationPropsType) => {
                     <button
                         onClick={(event)=>onChange(event,el)}
                     >
-                        {el}
+                        {String(el)}
                     </button>
                 )
             })}
