@@ -26,7 +26,7 @@ const SuperPagination: React.FC<SuperPaginationPropsType> = (
     }
 
     const onChangeSelect = (newCount: any) => {
-        onChange && onChange(page, newCount)
+        onChange && onChange(1, newCount)
     }
 
     return (
