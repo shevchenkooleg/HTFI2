@@ -13,7 +13,7 @@ export type SuperPaginationPropsType = {
 
 const SuperPagination: React.FC<SuperPaginationPropsType> = (
     {
-        page, itemsCountForPage, totalCount, onChange, id = '#hw15',
+        page, itemsCountForPage, totalCount, onChange, id = 'hw15',
     }
 ) => {
 
