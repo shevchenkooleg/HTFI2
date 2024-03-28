@@ -16,7 +16,7 @@ const MyPagination = (props: MyPaginationPropsType) => {
     }
 
     return (
-        <ul id={id + '-pagination'} style={{display: "flex", width: '100px', justifyContent: 'space-between'}}>
+        <nav id={id} style={{display: "flex", width: '100px', justifyContent: 'space-between'}}>
             {pageCountNumbers.map((el)=>{
                 return (
                     <button
@@ -26,7 +26,7 @@ const MyPagination = (props: MyPaginationPropsType) => {
                     </button>
                 )
             })}
-        </ul>
+        </nav>
     );
 };
 
